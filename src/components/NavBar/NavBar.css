@@ -1,0 +1,21 @@
+.navBar {
+  padding: 15px;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+}
+
+.list {
+  list-style: none;
+  margin: auto 0;
+}
+
+.item {
+  display: inline-block;
+}
+
+.item + .item:before {
+  content: "|";
+  display: inline;
+  margin: 0 5px;
+}
