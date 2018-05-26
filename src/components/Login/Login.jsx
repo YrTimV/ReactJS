@@ -1,15 +1,9 @@
-// Main import section.
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Login.css';
+import './Login.scss';
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-// Components import section.
-
-// Component global data.
-
-// Component class.
-export default class Login extends React.Component {
+export default class Login extends React.PureComponent {
   constructor(props) {
     super(props);
 

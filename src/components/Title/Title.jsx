@@ -1,19 +1,12 @@
-// Main import section.
-import './Title.css';
+import './Title.scss';
 import React from 'react';
 
-// Components import section.
-
-// Component global data.
-const titleClasses = 'title';
-
-// Component class.
-export default class Title extends React.Component {
+export default class Title extends React.PureComponent {
   render() {
     const { caption: headerCaption } = this.props;
 
     return (
-      <h1 className={titleClasses}>{headerCaption}</h1>
+      <h1 className="title">{headerCaption}</h1>
     );
   }
 }

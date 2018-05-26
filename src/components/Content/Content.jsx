@@ -1,17 +1,10 @@
-// Main import section.
-import './Content.css';
+import './Content.scss';
 import React from 'react';
 
-// Components import section.
-
-// Component global data.
-const contentClasses = 'content';
-
-// Component class.
-export default class Content extends React.Component {
+export default class Content extends React.PureComponent {
   render() {
     return (
-      <main className={contentClasses}>
+      <main className="content">
       </main>
     );
   }

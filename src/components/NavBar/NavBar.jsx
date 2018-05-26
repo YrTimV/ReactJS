@@ -1,24 +1,16 @@
-// Main import section.
-import './NavBar.css';
+import './NavBar.scss';
 import React from 'react';
 
-// Components import section.
 import Login from '../Login';
 
-// Component global data.
-const navBarClasses = 'navBar';
-const listClasses = 'list';
-const itemClasses = 'item';
-
-// Component class.
-export default class NavBar extends React.Component {
+export default class NavBar extends React.PureComponent {
   render() {
     const navMenuItems = this.props.items.map(item =>
-        <li className={itemClasses} key={item.id}><a href={item.link}>{item.title}</a></li>);
+        <li className="item" key={item.id}><a href={item.link}>{item.title}</a></li>);
 
     return (
-      <nav className={navBarClasses}>
-        <ul className={listClasses}>
+      <nav className="navBar">
+        <ul className="list">
           {navMenuItems}
         </ul>
         <Login></Login>

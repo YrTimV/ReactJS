@@ -1,22 +1,16 @@
-// Main import section.
-import './Layout.css';
+import './Layout.scss';
 import React from 'react';
 
-// Components import section.
 import Header from '../Header';
 import Aside from '../Aside';
 import Content from '../Content';
 import Footer from '../Footer';
 
-// Component global data.
-const layoutClasses = 'layout';
-
-// Component class.
-export default class Layout extends React.Component {
+export default class Layout extends React.PureComponent {
   render() {
 
     return (
-      <div className={layoutClasses}>
+      <div className="layout">
         <Header></Header>
         <Aside></Aside>
         <Content></Content>

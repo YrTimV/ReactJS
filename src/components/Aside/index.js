@@ -1,1 +1,1 @@
-export default from './Aside.jsx';
+export default from './Aside';

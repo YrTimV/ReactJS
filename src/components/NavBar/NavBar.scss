@@ -12,10 +12,10 @@
 
 .item {
   display: inline-block;
-}
 
-.item + .item:before {
-  content: "|";
-  display: inline;
-  margin: 0 5px;
+  & + &:before {
+    content: "|";
+    display: inline;
+    margin: 0 5px;
+  }
 }

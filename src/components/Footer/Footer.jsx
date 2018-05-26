@@ -1,17 +1,10 @@
-// Main import section.
-import './Footer.css';
+import './Footer.scss';
 import React from 'react';
 
-// Components import section.
-
-// Component global data.
-const footerClasses = 'footer';
-
-// Component class.
-export default class Footer extends React.Component {
+export default class Footer extends React.PureComponent {
   render() {
     return (
-      <footer className={footerClasses}>
+      <footer className="footer">
         All rights reserved. &copy; 2018
       </footer>
     );
