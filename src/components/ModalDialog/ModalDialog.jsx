@@ -6,7 +6,7 @@ export default class ModalDialog extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {modal: false};
+    this.state = {modal: true};
     this.toggle = this.toggle.bind(this);
   }
 
@@ -17,20 +17,16 @@ export default class ModalDialog extends React.PureComponent {
   }
 
   render() {
-    const { title, text } = this.props;
-
     return (
-      <div className="modalDialog">
-          <Modal isOpen={this.state.modal} toggle={this.toggle}>
-            <ModalHeader toggle={this.toggle}>{title}</ModalHeader>
-            <ModalBody>
-              <p>Welcome to the page &laquo;{text}&raquo;</p>
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.toggle}>OK</Button>
-            </ModalFooter>
-          </Modal>
-      </div>
+      <Modal isOpen={this.state.modal} toggle={this.toggle}>
+        <ModalHeader toggle={this.toggle}>{this.props.title}</ModalHeader>
+        <ModalBody>
+          <p>Welcome to the post page.</p>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={this.toggle}>OK</Button>
+        </ModalFooter>
+      </Modal>
     );
   }
 }
