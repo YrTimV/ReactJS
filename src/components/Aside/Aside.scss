@@ -1,0 +1,10 @@
+.aside {
+  float: left;
+  width: 13%;
+  border: 1px solid black;
+  min-height: calc(100vh - 120px - 72px);
+
+  h3 {
+    text-align: center;
+  }
+}

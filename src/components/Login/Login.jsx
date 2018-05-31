@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.scss';
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
@@ -9,7 +8,6 @@ export default class Login extends React.PureComponent {
 
     this.state = {modal: false};
     this.toggle = this.toggle.bind(this);
-    this.className = 'login';
   }
 
   toggle() {
@@ -20,7 +18,7 @@ export default class Login extends React.PureComponent {
 
   render() {
     return (
-      <div className={this.className}>
+      <div className="login">
         <Button color="danger" onClick={this.toggle}>Login</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Login</ModalHeader>
