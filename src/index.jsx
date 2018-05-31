@@ -1,8 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Layout from './components/Layout';
+import LayoutContainer from './containers/LayoutContainer';
 
-ReactDOM.render(<Layout></Layout>, document.getElementById('root'));
+import appData from './appData.js';
+import UserService from './services/UserService';
+
+appData.users = UserService.getUserList('https:/jsonplaceholder.typicode.com/users');
+
+ReactDOM.render(<LayoutContainer data={appData}/>, document.getElementById('root'));

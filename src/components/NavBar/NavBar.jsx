@@ -5,15 +5,14 @@ import Login from '../Login';
 
 export default class NavBar extends React.PureComponent {
   render() {
-    const navMenuItems = this.props.items.map(item =>
-        <li className="item" key={item.id}><a href={item.link}>{item.title}</a></li>);
+    const { items, onLinkClick, currentPage } = this.props;
 
     return (
       <nav className="navBar">
         <ul className="list">
-          {navMenuItems}
+          {items.map(item => <li className="item" key={item.id}><a className={item.id === currentPage ? 'itemActive' : ''} href={item.link} onClick={onLinkClick(item.id)}>{item.title}</a></li>)}
         </ul>
-        <Login></Login>
+        <Login />
       </nav>
     );
   }
