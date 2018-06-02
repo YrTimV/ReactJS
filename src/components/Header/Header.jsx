@@ -1,8 +1,8 @@
 import './Header.scss';
 import React from 'react';
 
-import Title from '../Title';
-import NavBar from '../NavBar';
+import Title from 'components/Title';
+import NavBar from 'components/NavBar';
 
 export default class Header extends React.PureComponent {
   render() {

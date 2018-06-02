@@ -1,10 +1,10 @@
 import './LayoutContainer.scss';
 import React from 'react';
 
-import Header from '../../components/Header';
-import Aside from '../../components/Aside';
-import Content from '../../components/Content';
-import Footer from '../../components/Footer';
+import Header from 'components/Header';
+import Aside from 'components/Aside';
+import Content from 'components/Content';
+import Footer from 'components/Footer';
 
 export default class LayoutContainer extends React.PureComponent {
   constructor(props) {
@@ -76,7 +76,7 @@ export default class LayoutContainer extends React.PureComponent {
           ...newState,
           currentPage: {
             ...pageMeta[link],
-            content: users,
+            content: '',
           },
         };
 

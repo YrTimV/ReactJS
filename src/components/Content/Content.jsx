@@ -1,11 +1,11 @@
 import './Content.scss';
 import React from 'react';
 
-import PageAbout from '../PageAbout';
-import PageBlog from '../PageBlog';
-import PageContacts from '../PageContacts';
-import PagePost from '../PagePost';
-import UserListContainer from '../../containers/UserListContainer';
+import PageAbout from 'components/PageAbout';
+import PageBlog from 'components/PageBlog';
+import PageContacts from 'components/PageContacts';
+import PagePost from 'components/PagePost';
+import UserListContainer from 'containers/UserListContainer';
 
 export default class Content extends React.PureComponent {
   render() {
@@ -19,7 +19,7 @@ export default class Content extends React.PureComponent {
       case 'post': pageContent = <PagePost content={content} handlers={handlers} />; break;
       case 'users': pageContent = <UserListContainer content={content} />; break;
     }
-
+    
     return (
       <main className="content">
         {pageHeader && <h1>{pageHeader} {descText && <small>{descText}</small>}</h1>}
