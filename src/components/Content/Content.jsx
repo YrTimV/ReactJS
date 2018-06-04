@@ -1,32 +1,28 @@
 import './Content.scss';
 import React from 'react';
 
-import Post from '../Post';
-import ModalDialog from '../ModalDialog';
+import PageAbout from 'components/PageAbout';
+import PageBlog from 'components/PageBlog';
+import PageContacts from 'components/PageContacts';
+import PagePost from 'components/PagePost';
+import UserListContainer from 'containers/UserListContainer';
 
 export default class Content extends React.PureComponent {
-  renderSinglePost() {
-    const { pageHeader: title, descText: text, post } = this.props.pageContent;
-
-    return (
-      <main className="content">
-        <ModalDialog title={title} text = {`Welcome to the post &laquo;${text}&raquo;`}/>
-        <Post content={{...post, singlePost: true}}/>
-      </main>
-    );
-  }
-
   render() {
-    if (this.props.pageContent.post) {
-      return this.renderSinglePost();
-    }
+    const { pageContent: { pageHeader, descText, content, handlers } } = this.props;
+    let pageContent;
 
-    const { pageHeader, descText, posts } = this.props.pageContent;
-    const pageContent = posts.map(post => (<Post key={post.link} content={post} onLinkClick={this.props.onLinkClick}/>));
+    switch (this.props.pageContent.type) {
+      case 'about': pageContent = <PageAbout content={content} />; break;
+      case 'blog': pageContent = <PageBlog content={content} handlers={handlers} />; break;
+      case 'contacts': pageContent = <PageContacts content={content} />; break;
+      case 'post': pageContent = <PagePost content={content} handlers={handlers} />; break;
+      case 'users': pageContent = <UserListContainer content={content} />; break;
+    }
     
     return (
       <main className="content">
-        <h1>{pageHeader} <small>{descText}</small></h1>
+        {pageHeader && <h1>{pageHeader} {descText && <small>{descText}</small>}</h1>}
         {pageContent}
       </main>
     );

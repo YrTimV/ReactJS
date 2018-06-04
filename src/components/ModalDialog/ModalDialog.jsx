@@ -6,11 +6,10 @@ export default class ModalDialog extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {modal: true};
-    this.toggle = this.toggle.bind(this);
+    this.state = {modal: false};
   }
 
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
