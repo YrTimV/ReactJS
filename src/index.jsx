@@ -1,8 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import LayoutContainer from './containers/LayoutContainer';
+import PokemonListContainer from 'containers/PokemonListContainer';
+import Pokemon from 'components/Pokemon';
 
-import appData from './assets/appData.js';
+const routes = [
+  {
+    path: '/',
+    component: PokemonListContainer,
+    exact: true,
+  },
+  {
+    path: '/pokemon/:pokemonId',
+    component: Pokemon,
+    exact: true,
+  },
+]
 
-ReactDOM.render(<LayoutContainer data={appData}/>, document.getElementById('root'));
+class App extends React.PureComponent {
+  render() {
+    return (
+      <BrowserRouter>
+        <Switch>
+          {routes.map((route, idx) => <Route key={idx} {...route} />)}
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
