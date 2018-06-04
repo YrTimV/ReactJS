@@ -1,10 +1,19 @@
 import './Pokemon.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Loading from 'components/Loading';
 
 export default class Pokemon extends React.PureComponent {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        pokemonId: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }
+
   constructor(props) {
     super(props);
 
