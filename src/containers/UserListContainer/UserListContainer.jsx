@@ -1,21 +1,14 @@
 import './UserListContainer.scss';
 import React from 'react';
+import { connect } from 'react-redux';
 
+import { loadUsers } from 'actions/users';
 import UserList from 'components/UserList';
 import Loading from 'components/Loading';
 
-export default class UserListContainer extends React.PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      users: [],
-      loading: true,
-    };
-  }
-
+class UserListContainer extends React.PureComponent {
   render() {
-    const { users, loading } = this.state;
+    const { users, loading } = this.props;
 
     return (
       <React.Fragment>
@@ -25,20 +18,26 @@ export default class UserListContainer extends React.PureComponent {
   }
 
   componentDidMount() {
-    fetch('https:/jsonplaceholder.typicode.com/users')
-      .then((response) => response.json())
-      .then((users) => {
-        this.setState({
-          users,
-          loading: false,
-        });
-      })
-      .catch((error) => {
-        this.setState({
-          users: [],
-          loading: false,
-          error,
-        });
-      });
+    const { load } = this.props;
+
+    load();
   }
 }
+
+function mapStateToProps(state, ownProps) {
+  return {
+    ...ownProps,
+    users: state.users.users,
+    loading: state.users.loading,
+    loadError: state.users.loadError,
+  };
+}
+
+function mapDispatchToProps(dispatch, props) {
+  return {
+    ...props,
+    load: () => loadUsers(dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserListContainer);

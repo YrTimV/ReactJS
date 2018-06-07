@@ -13,17 +13,17 @@ export default class User extends React.PureComponent {
   }
   
   render() {
-    const { user } = this.props;
+    const { user: { id, name, username, email } } = this.props;
 
     return (
       <div className="user">
-        Id: <span className="userId">{user.id}</span>
-        <br/>
-        Name: {user.name}
-        <br/>
-        Username: {user.username}
-        <br/>
-        Email: {user.email}
+        Id: <span className="userId">{id}</span>
+        <br />
+        Name: {name}
+        <br />
+        Username: {username}
+        <br />
+        Email: {email}
       </div>
     );
   }
