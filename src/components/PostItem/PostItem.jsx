@@ -1,5 +1,6 @@
 import './PostItem.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class PostItem extends React.PureComponent {
@@ -17,9 +18,9 @@ export default class PostItem extends React.PureComponent {
 
     return (
       <div className="postItem">
-        Id: <span className="postId">{id}</span>
+        Id: <Link to={`/post/${id}`} className="postId">{id}</Link>
         <br />
-        UserId: <span className="userId">{userId}</span>
+        UserId: <Link to={`/posts/${userId}`} className="userId">{userId}</Link>
         <br />
         Title: {title}
         <br />

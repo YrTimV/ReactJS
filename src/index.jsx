@@ -8,6 +8,7 @@ import store from './assets/store';
 import UserListContainer from 'containers/UserListContainer';
 import User from 'components/User';
 import PostListContainer from 'containers/PostListContainer';
+import PostCommentContainer from 'containers/PostCommentContainer';
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
   {
     path: '/posts/:userId',
     component: PostListContainer,
+    exact: true,
+  },
+  {
+    path: '/post/:postId',
+    component: PostCommentContainer,
     exact: true,
   },
   {

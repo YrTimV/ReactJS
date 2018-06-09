@@ -1,5 +1,6 @@
 import './PostListContainer.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -10,33 +11,43 @@ import Loading from 'components/Loading';
 class PostListContainer extends React.PureComponent {
   static propTypes = {
     match: PropTypes.shape({
-      userId: PropTypes.number,
+      params: PropTypes.shape({
+        userId: PropTypes.string,
+      }),
     }),
   }
 
   render() {
-    const { posts, loading, match } = this.props;
+    const { posts, loading, match: { params: { userId } } } = this.props;
+    const postItems = (
+      userId ?
+      posts.filter((post) => post.userId == userId).map((post) => <PostItem key={post.id} post={post} />) :
+      posts.map((post) => <PostItem key={post.id} post={post}/>)
+    );
 
-    return (
+    return (loading ? <Loading /> :
       <React.Fragment>
-        {loading ? <Loading /> : <div className="postListContainer">{posts.map((post) => <PostItem key={post.id} post={post} /> )}</div>}
+        {userId ? <Link to="/posts">Show all posts</Link> : ''}
+        <div className="postListContainer">{postItems}</div>
       </React.Fragment>
     );
   }
 
   componentDidMount() {
-    const { load, match } = this.props;
+    const { load, match: { userId } } = this.props;
 
-    load(match.userId);
+    load(userId);
   }
 }
 
 function mapStateToProps(state, ownProps) {
+  const { posts: { posts, loading, loadError } } = state;
+
   return {
     ...ownProps,
-    posts: state.posts.posts,
-    loading: state.posts.loading,
-    loadError: state.posts.loadError,
+    posts,
+    loading,
+    loadError,
   };
 }
 
