@@ -5,25 +5,27 @@ import PropTypes from 'prop-types';
 export default class User extends React.PureComponent {
   static propTypes = {
     user: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
       username: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
-    }).isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      age: PropTypes.number.isRequired,
+  }).isRequired,
   }
   
   render() {
-    const { user: { id, name, username, email } } = this.props;
+    const { user: { username, email, firstName, lastName, age } } = this.props;
 
     return (
       <div className="user">
-        Id: <span className="userId">{id}</span>
         <br />
-        Name: {name}
+        Full Name: {firstName} {lastName}
         <br />
         Username: {username}
         <br />
         Email: {email}
+        <br />
+        Age: {age}
       </div>
     );
   }
