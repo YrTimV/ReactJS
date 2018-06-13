@@ -38,7 +38,7 @@ class PostCommentContainer extends React.PureComponent {
 }
 
 function mapStateToProps(state, ownProps) {
-  const { comments: { comments, loading, loadError } } = state;
+  const { comments, loading, loadError } = state.comments;
 
   return {
     ...ownProps,
