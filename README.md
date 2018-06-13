@@ -21,3 +21,6 @@ My homework for GeekBrains ReactJS course.
 
 ## Lesson 07
 * Added a separate simple blog. A user can see a list of blogs with user Ids. A click on user Id navigates to a user posts page. A click on a blog Id navigates to blog comment list.
+
+## Lesson 08
+* Redesigned the app for showing users, blogs and comments, stored in a MongoDB database. Added a server API for some basic CRUD operations with the user data model.
