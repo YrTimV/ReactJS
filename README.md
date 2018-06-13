@@ -15,3 +15,9 @@ My homework for GeekBrains ReactJS course.
 
 ## Lesson 05
 * Added blog comment submit, About, Contacts and User-list page with some basic info.
+
+## Lesson 06
+* Added a simple pokemon list with images. A user can click a pokemon's image/name link to get some basic info.
+
+## Lesson 07
+* Added a separate simple blog. A user can see a list of blogs with user Ids. A click on user Id navigates to a user posts page. A click on a blog Id navigates to blog comment list.
