@@ -9,6 +9,7 @@ import UserListContainer from 'containers/UserListContainer';
 import User from 'components/User';
 import PostListContainer from 'containers/PostListContainer';
 import PostCommentContainer from 'containers/PostCommentContainer';
+import UserRegistration from 'components/UserRegistration';
 
 const routes = [
   {
@@ -34,6 +35,11 @@ const routes = [
   {
     path: '/users/:userId',
     component: User,
+    exact: true,
+  },
+  {
+    path: '/register',
+    component: UserRegistration,
     exact: true,
   },
 ];

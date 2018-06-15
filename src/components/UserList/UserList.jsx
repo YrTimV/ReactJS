@@ -7,10 +7,11 @@ export default class UserList extends React.PureComponent {
   static propTypes = {
     users: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
         username: PropTypes.string.isRequired,
         email: PropTypes.string.isRequired,
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+        age: PropTypes.number.isRequired,
       })
     ),
   }
@@ -20,7 +21,7 @@ export default class UserList extends React.PureComponent {
 
     return (
       <div className="userList">
-        {users.map((user) => <User key={user.id} user={user} />)}
+        {users.map((user) => <User key={user.username} user={user} />)}
       </div>
     );
   }
